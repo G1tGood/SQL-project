@@ -1,0 +1,20 @@
+-- Drop the combat_medic table
+DROP TABLE combat_medic CASCADE CONSTRAINTS;
+
+-- Drop the military_rabbi table
+DROP TABLE military_rabbi CASCADE CONSTRAINTS;
+
+-- Drop the operation table
+DROP TABLE operation CASCADE CONSTRAINTS;
+
+-- Drop the team table
+DROP TABLE team CASCADE CONSTRAINTS;
+
+-- Drop the commander table
+DROP TABLE commander CASCADE CONSTRAINTS;
+
+-- Drop the solider table
+DROP TABLE solider CASCADE CONSTRAINTS;
+
+-- Drop the solider-in table
+DROP TABLE solider_in CASCADE CONSTRAINTS;
