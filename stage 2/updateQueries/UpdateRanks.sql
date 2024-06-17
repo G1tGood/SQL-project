@@ -1,0 +1,19 @@
+-- give better rank for soliders participated in the last operation
+UPDATE solider
+SET rank = CASE
+               WHEN rank = 'Private' THEN 'Corporal'
+               WHEN rank = 'Corporal' THEN 'Sergeant'
+               WHEN rank = 'Sergeant' THEN 'Lieutenant'
+               ELSE rank
+           END
+WHERE id IN (
+    SELECT s.id
+    FROM solider s
+    JOIN solider_in si ON s.id = si.id
+    JOIN operation o ON si.team_number = o.team_number
+    WHERE o.operation_date = (
+        SELECT MAX(o2.operation_date)
+        FROM operation o2
+    )
+);
+commit;
